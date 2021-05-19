@@ -15,19 +15,25 @@ router.get('/:id', async (req, res) => {
 router.post('/', async (req, res) => {
    const blog = await Blog.create(req.body)
    res.json(blog)
-})/*
-router.put('/:blogId', async (req, res) => {
-    await Film.update(req.body,{
-        where:{id: req.params.filmId}
+})
+router.put('/:id', async (req, res) => {
+    const blog = await Blog.findByPk(req.params.id)
+    if(blog){
+    await Blog.update(req.body,{
+        where:{id: req.params.id}
     })
     res.json({succes: "se ha modificado"})
+}else{
+    res.json({succes: "id no encontrado"})
+
+}
  })
- 
- router.delete('/:blogId', async (req, res) => {
-    await Film.destroy({
-        where: { id: req.params.filmId}
+
+ router.delete('/:id', async (req, res) => {
+    await Blog.destroy({
+        where: { id: req.params.id}
     })
     res.json({succes: "se ha eliminado"})
  })
- */
+
 module.exports = router;
