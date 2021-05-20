@@ -1,5 +1,6 @@
 const express = require('express')
 const bodyparser = require('body-parser')
+const cors = require("cors")
 const apiRouter = require('./src/routes/routes')
 const app = express()
 
@@ -11,6 +12,7 @@ app.use(bodyparser.urlencoded({extended:true}))
 
 
 app.use('/api', apiRouter)
+app.use(cors());
 
 
 
