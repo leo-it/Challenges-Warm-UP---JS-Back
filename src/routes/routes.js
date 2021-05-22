@@ -1,8 +1,8 @@
 const router = require('express').Router()
 
-const apiFilmsRouter = require('../controllers/blogController')
+const apiBlogRouter = require('../controllers/blogController')
 
-router.use('/posts', apiFilmsRouter)
+router.use('/posts', apiBlogRouter)
 
 
 
